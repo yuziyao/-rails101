@@ -10,8 +10,8 @@ before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destr
 
     def show
    @group = Group.find(params[:id])
-   @posts = @group.posts.order("created_at DESC")
- end
+    @posts = @group.posts.recent
+   end
 
  def edit
    find_group_and_check_permission
